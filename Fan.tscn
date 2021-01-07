@@ -1,0 +1,94 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Fan.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Free/Traps/Fan/On (24x8).png" type="Texture" id=2]
+[ext_resource path="res://Assets/Wind/W401-5.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Wind/W401-3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Wind/W401-15.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Wind/W401-1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Wind/W401-14.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Wind/W401-12.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Wind/W401-13.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Wind/W401-10.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Wind/W401-4.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Wind/W401-8.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Wind/W401-6.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Wind/W401-7.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Wind/W401-16.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Wind/W401-9.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Wind/W401-2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Wind/W401-11.png" type="Texture" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 1 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 24, 8 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 24, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 24, 8 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 72, 0, 24, 8 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 12, 4.5 )
+
+[node name="Fan" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="FanWind" type="Area2D" parent="."]
+position = Vector2( 0, -5 )
+collision_layer = 2147483655
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FanWind"]
+position = Vector2( 0.0701523, -5.96308 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="FanWind"]
+position = Vector2( -3.2569, -6.41851 )
+rotation = -1.5708
+scale = Vector2( 0.005, 0.258 )
+frames = SubResource( 8 )
+playing = true
+
+[node name="FanBase" type="StaticBody2D" parent="."]
+scale = Vector2( 2.00944, 2.00944 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="FanBase"]
+frames = SubResource( 6 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FanBase"]
+shape = SubResource( 7 )
+[connection signal="body_entered" from="FanWind" to="." method="_on_FanWind_body_entered"]
+[connection signal="body_exited" from="FanWind" to="." method="_on_FanWind_body_exited"]

@@ -1,0 +1,208 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelOne.gd" type="Script" id=2]
+[ext_resource path="res://boxPowerUp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cloudBoxPowerUp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://FinishFlag.tscn" type="PackedScene" id=5]
+
+[node name="LevelOne" type="Node2D" groups=[
+"Levels",
+]]
+script = ExtResource( 2 )
+
+[node name="LevelTiling" type="Node2D" parent="."]
+
+[node name="Ground2" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 648, 522.933 )
+scale = Vector2( 0.221397, 11.7119 )
+
+[node name="Ground3" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 153.468, 561.299 )
+scale = Vector2( 2.62844, 4.7957 )
+
+[node name="Ground" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( -52.7231, 63.1409 )
+rotation = 1.57079
+scale = Vector2( 2.31707, 8.61586 )
+
+[node name="Ground4" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 720, 480 )
+scale = Vector2( 0.252633, 15.0902 )
+
+[node name="Ground5" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 784, 456 )
+scale = Vector2( 0.264912, -24.9391 )
+
+[node name="Ground6" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 864, 400 )
+scale = Vector2( 0.3006, -29.4098 )
+
+[node name="Ground7" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 1200, 561.299 )
+scale = Vector2( 2.62844, 4.7957 )
+
+[node name="Ground8" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 1766.53, 480 )
+scale = Vector2( 0.252633, 15.0902 )
+
+[node name="Ground9" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 1830.53, 456 )
+scale = Vector2( 0.264912, -24.9391 )
+
+[node name="Ground10" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 1952, 400 )
+scale = Vector2( 0.651841, -29.0188 )
+
+[node name="Ground11" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 78, 512 )
+scale = Vector2( 0.401271, 4.41801 )
+
+[node name="ceiling" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 2288, 7.62939e-06 )
+rotation = -1.57079
+scale = Vector2( 0.410461, 284.725 )
+
+[node name="Ground13" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 2152, 544 )
+scale = Vector2( 1.49348, 10.9523 )
+
+[node name="Ground15" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 3289.53, 451.435 )
+scale = Vector2( -0.0374618, -8.63499 )
+
+[node name="Ground12" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 3008, 481.996 )
+scale = Vector2( 1.18631, 4.80889 )
+
+[node name="Ground14" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 3872, 528 )
+scale = Vector2( 0.672901, 9.74912 )
+
+[node name="Ground16" parent="LevelTiling" instance=ExtResource( 1 )]
+position = Vector2( 4053.85, 300.294 )
+scale = Vector2( 0.396414, 38.2537 )
+
+[node name="FinishFlag" parent="LevelTiling" instance=ExtResource( 5 )]
+position = Vector2( 3888.33, 444.436 )
+scale = Vector2( 1.93074, 1.93074 )
+
+[node name="Powerups" type="Node2D" parent="."]
+
+[node name="boxPowerUp" parent="Powerups" instance=ExtResource( 3 )]
+position = Vector2( 1344, 448 )
+
+[node name="boxPowerUp2" parent="Powerups" instance=ExtResource( 3 )]
+position = Vector2( 3256, 304 )
+
+[node name="cloudBoxPowerUp" parent="Powerups" instance=ExtResource( 4 )]
+position = Vector2( 320.723, 370.614 )
+
+[node name="LevelSpecificText" type="Control" parent="."]
+margin_left = 425.0
+margin_top = 88.0
+margin_right = 464.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="screenText1" type="Label" parent="LevelSpecificText"]
+margin_left = -335.905
+margin_top = -18.7035
+margin_right = -130.905
+margin_bottom = -4.70354
+rect_scale = Vector2( 2.36362, 2.36362 )
+text = "Left and Right Arrow Keys: Move
+Up Arrow Key: Jump"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="screenText2" type="Label" parent="LevelSpecificText"]
+margin_left = 655.459
+margin_top = 12.4092
+margin_right = 896.459
+margin_bottom = 60.4092
+rect_scale = Vector2( 2.36362, 2.36362 )
+text = "Down Arrow: Cycle Selected Box Spell
+Spacebar: Create Selected Box
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="screenText2,1" type="Label" parent="LevelSpecificText/screenText2"]
+margin_left = 38.2928
+margin_top = 81.3723
+margin_right = 364.293
+margin_bottom = 129.372
+rect_scale = Vector2( 0.492394, 0.492394 )
+text = "Note: You'll need box power to use a specific spell!
+Eat an apple to gain basic box power!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="screenText2,2" type="Label" parent="LevelSpecificText/screenText2"]
+margin_left = -48.9357
+margin_top = 41.2348
+margin_right = 277.064
+margin_bottom = 89.2348
+rect_scale = Vector2( 1.00835, 1.00835 )
+custom_colors/font_color = Color( 0.996078, 0.490196, 0.490196, 1 )
+text = "R: Retry Level"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deathMsg" type="Label" parent="."]
+visible = false
+margin_left = 256.0
+margin_top = 96.0
+margin_right = 357.0
+margin_bottom = 110.0
+rect_scale = Vector2( 3.77651, 5.12574 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "You died!
+Press R to Retry"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCompleteMsg" type="Label" parent="."]
+visible = false
+margin_left = 424.0
+margin_top = 88.0
+margin_right = 550.0
+margin_bottom = 119.0
+rect_scale = Vector2( 3.4966, 3.4966 )
+text = "WOW!
+CONGRATULATION!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelInfoMsg" type="Label" parent="."]
+margin_left = 8.72008
+margin_top = 10.3365
+margin_right = 76.7201
+margin_bottom = 24.3365
+rect_scale = Vector2( 2.44668, 1.99364 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1) The Basics"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="flagReached" from="LevelTiling/FinishFlag" to="." method="_on_FinishFlag_flagReached"]
+[connection signal="collected" from="Powerups/boxPowerUp" to="." method="_on_boxPowerUp_collected"]
+[connection signal="collected" from="Powerups/boxPowerUp2" to="." method="_on_boxPowerUp_collected"]
+[connection signal="collected" from="Powerups/cloudBoxPowerUp" to="." method="_on_cloudBoxPowerUp_collected"]
